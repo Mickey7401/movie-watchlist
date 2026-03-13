@@ -5,6 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ProtectedRoute from "./ProtectedRoute";
 import { auth } from "./firebase";
 
 import "./App.css";
@@ -29,7 +30,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home user={user} />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute user={user}>
+              <Home user={user} />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
