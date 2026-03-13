@@ -1,18 +1,20 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+
 import "./App.css";
 
 function App() {
   return (
-    <main className="container">
-      <h1>Movie Watchlist</h1>
-      <p>
-        Movie Watchlist is a web app that helps users keep track of movies they
-        want to watch.
-      </p>
-      <p>
-        Users can add movies, mark them as watched, and remove them from the
-        list.
-      </p>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
